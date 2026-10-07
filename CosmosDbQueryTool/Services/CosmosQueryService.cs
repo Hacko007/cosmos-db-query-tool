@@ -114,7 +114,7 @@ public sealed class CosmosQueryService
         var parts = new List<string>();
         foreach (var property in document.EnumerateObject())
         {
-            if (property.Name.StartsWith('_'))
+            if (property.Name.StartsWith('_')|| property.Name.Equals("id", StringComparison.OrdinalIgnoreCase))
             {
                 continue;
             }
