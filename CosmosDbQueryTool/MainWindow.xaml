@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Cosmos DB Query Tool"
+        Icon="app-icon.ico"
+        Title="{Binding CurrentConnectionName}"
         Height="900"
         Width="1440"
         MinHeight="720"
@@ -23,23 +24,23 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0"
-                Padding="16"
+                Padding="8"
                 Background="#FF0F172A"
                 CornerRadius="8">
-            <StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="24"
                            FontWeight="SemiBold"
                            Foreground="White"
                            Text="Cosmos DB Query Tool" />
-                <TextBlock Margin="0,6,0,0"
+                <TextBlock Margin="15,6,0,0"
                            Foreground="#FFE2E8F0"
                            Text="Open Connections to manage your saved connection tabs, then run a SQL query, inspect the results in the grid, and view the full JSON for the selected row." />
             </StackPanel>
         </Border>
 
         <Border Grid.Row="1"
-                Margin="0,14,0,14"
-                Padding="16"
+                Margin="0,5,0,5"
+                Padding="8"
                 BorderBrush="#FFD1D5DB"
                 BorderThickness="1"
                 CornerRadius="8">
@@ -52,17 +53,15 @@
                             Orientation="Horizontal"
                             VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0"
                                    FontWeight="SemiBold"
-                                   Text="Current Connection" />
-                        <TextBlock Foreground="#FF64748B"
-                                   Margin="0,2,15,0"
-                                   Text="The selected tab in the Connections window is the active connection used for queries." />
-                    </StackPanel>
+                                   ToolTip="The selected tab in the Connections window is the active connection used for queries."
+                                   Text="Connection:" />
                         
                         <Border  Margin="0,0,10,0"
-                                 Padding="7,4"
+                                 Padding="18,2"
                                  Background="#FFF8FAFC"
                                  CornerRadius="6"
                                  BorderBrush="DarkCyan"
@@ -87,7 +86,7 @@
         </Border>
 
         <Border Grid.Row="2"
-                Padding="16"
+                Padding="8"
                 BorderBrush="#FFD1D5DB"
                 BorderThickness="1"
                 CornerRadius="8">
@@ -103,12 +102,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Margin="20,0,0,0">
-                    <StackPanel >
-                        <TextBlock FontWeight="SemiBold" Text="Recent Queries" />
-                        <TextBlock Foreground="#FF64748B"
-                                   FontSize="12"
-                                   Text="Pick one of the last 50 successful unique queries to reuse it." />
-                    </StackPanel>
+                    <TextBlock FontWeight="SemiBold" Text="Recent Queries" ToolTip="Pick one of the last 50 successful unique queries to reuse it."/>
 
                     <ComboBox x:Name="RecentQueriesComboBox"
                               Width="460"
@@ -147,7 +141,7 @@
             </Grid>
         </Border>
 
-        <Grid Grid.Row="3" Margin="0,14,0,14">
+        <Grid Grid.Row="3" Margin="0,7,0,7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -187,6 +181,7 @@
 
             <TextBlock Grid.Column="4"
                        VerticalAlignment="Center"
+                       Margin="12,0,0,0"
                        Foreground="#FF334155"
                        Text="{Binding StatusMessage}" />
 

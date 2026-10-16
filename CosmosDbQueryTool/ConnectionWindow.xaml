@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        Icon="app-icon.ico"
         Title="Connections"
         Width="1120"
         Height="740"
@@ -23,12 +24,12 @@
             <DockPanel>
                 <StackPanel>
                     <TextBlock FontSize="24"
+                               Margin="0,0,15,0"
                                FontWeight="SemiBold"
                                Foreground="White"
+                               ToolTip="The selected tab is the active connection used by the main window. Switch tabs here to change the current connection."
                                Text="Connection Profiles" />
-                    <TextBlock Margin="0,6,0,0"
-                               Foreground="#FFE2E8F0"
-                               Text="The selected tab is the active connection used by the main window. Switch tabs here to change the current connection." />
+                    
                 </StackPanel>
 
                 <Button x:Name="AddConnectionButton"
@@ -149,15 +150,12 @@
         </Border>
 
         <DockPanel Grid.Row="2">
-            <TextBlock VerticalAlignment="Center"
-                       Foreground="#FF64748B"
-                       Text="The current connection is saved automatically when a query succeeds, and the selected tab is restored when the app starts." />
             <Button DockPanel.Dock="Right"
                     MinWidth="110"
                     Padding="14,8"
+                    ToolTip="The current connection is saved automatically when a query succeeds, and the selected tab is restored when the app starts."
                     Click="CloseButton_OnClick"
                     Content="Close" />
         </DockPanel>
     </Grid>
 </Window>
-
